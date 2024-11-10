@@ -20,7 +20,6 @@ module tt_um_example (
   wire [7:0] a;
   wire [7:0] b;
   wire [3:0] alu_op;
-  wire reset;
   wire [7:0] alu_out;
 
   assign a = {2'b0, uio_in[5:0]};
