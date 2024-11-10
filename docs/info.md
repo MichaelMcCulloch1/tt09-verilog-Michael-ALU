@@ -9,12 +9,14 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-Explain how your project works
+In short the first 6 bits of the bidirection IO is A, then bits 7 and 7 of the bidirectional and bits 0 to 3 of the single way input are B
+and the last 4 bits are the ALU opcode (based on RISCV)
+Values get outputted in 8bit from the single way output bus
 
 ## How to test
 
-Explain how to use your project
+Setting the inputs and testing the outputs for certain opcodes
 
 ## External hardware
 
-List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+None at the moment... Could attach LEDs for testing
