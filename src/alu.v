@@ -24,7 +24,7 @@ always @(*) begin
         end
         //Unsigned
         `ALU_SLTU   : begin
-            if (a[30:0] < b[30:0]) begin 
+            if (a[4:0] < b[4:0]) begin 
                 out = 1; 
             end else begin
                 out = 0;
