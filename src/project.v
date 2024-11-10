@@ -16,12 +16,27 @@ module tt_um_example (
     input  wire       rst_n     // reset_n - low to reset
 );
 
+  // Instatiate the ALU:
+  wire [7:0] a;
+  wire [7:0] b;
+  wire [3:0] alu_op;
+  wire reset;
+  wire [7:0] alu_out;
+
+  assign a = {2'b0, uio_in[5:0]};
+  assign b = {2'b0, ui_in[3:0], uio_in[7:6]};
+  assign alu_op = ui_in[7:4];
+
+  alu theALU(.a(a), .b(b), .alu_op(alu_op), .out(alu_out));
+
   // All output pins must be assigned. If not used, assign to 0.
-  assign uo_out  = ui_in + uio_in;  // Example: ou_out is the sum of ui_in and uio_in
-  assign uio_out = 0;
-  assign uio_oe  = 0;
+  assign uio_oe = 8'd0;  // All bidirectional will be inputs
+  assign uio_out = 8'd0; // Not used
+  assign uo_out = alu_out;
 
   // List all unused inputs to prevent warnings
   wire _unused = &{ena, clk, rst_n, 1'b0};
+
+
 
 endmodule
